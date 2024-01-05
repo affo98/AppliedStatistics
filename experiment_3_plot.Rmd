@@ -129,7 +129,7 @@ comb_b <- comb_b %>%
                                 "Hispanic - Mixed" = "Ethnicity_Hispanic minuss Ethnicity_Mixed") %>%
            fct_relevel("Hispanic - Mixed", "Asian - Mixed", "Asian - Hispanic", "White - Mixed", "White - Hispanic", "White - Asian", "Male - Female"))
 
-svg('fig_b.svg', width = 3.5, height = 4)
+svg('fig_b2.svg', width = 3.5, height = 4)
 
 ggplot(comb_b, aes(x = Score, y = as.factor(predictor), fill = as.factor(predictor))) +
   stat_halfeye(fill = pal_lancet()(1)[1], alpha=0.5,
@@ -138,7 +138,7 @@ ggplot(comb_b, aes(x = Score, y = as.factor(predictor), fill = as.factor(predict
   geom_vline(xintercept = 0, linetype = "dashed", color = "black", size=0.9) +
   theme_minimal() +
   labs(title = "B",
-       x=expression(phi[~beta[x~sigma]] - phi[~beta[y~sigma]]),
+       x=expression(phi[~beta[X[n]~sigma]] - phi[~beta[X[m]~sigma]]),
        y = "Lambda") +
   ylab(NULL) +
   theme(legend.position = "none") +
@@ -174,7 +174,7 @@ ggplot(comb_c, aes(x = Score, y = as.factor(predictor), fill = as.factor(predict
   geom_vline(xintercept = 0, linetype = "dashed", color = "black", size=0.9) +
   theme_minimal() +
   labs(title = "C",
-       x = expression(paste("Median ", phi[~beta[x~sigma]], "- Median", phi[~beta[y~sigma]])),
+       x = expression(paste("Median ", phi[~beta[X[n]~sigma]], " - Median ", phi[~beta[X[m]~sigma]])),
        y = "Lambda") +
   ylab(NULL) +
   theme(legend.position = "none") +
@@ -199,7 +199,7 @@ comb_c_adj <- comb_c_adj %>%
                                 "Hispanic - Mixed" = "Hispanic - Mixed") %>%
            fct_relevel("Hispanic - Mixed", "Asian - Mixed", "Asian - Hispanic", "White - Mixed", "White - Hispanic", "White - Asian", "Male - Female"))
 
-svg('fig_c_adj.svg', width = 3, height = 4)
+svg('fig_c_adj_2.svg', width = 3, height = 4)
 
 ggplot(comb_c_adj, aes(x = Score, y = as.factor(predictor), fill = as.factor(predictor))) +
   stat_halfeye(fill = "#C27D38", alpha=0.5,
@@ -208,7 +208,7 @@ ggplot(comb_c_adj, aes(x = Score, y = as.factor(predictor), fill = as.factor(pre
   geom_vline(xintercept = 0, linetype = "dashed", color = "black", size=0.9) +
   theme_minimal() +
   labs(title = "E",
-       x = expression(paste("Median ", phi[~beta[x~sigma]], "- Median", phi[~beta[y~sigma]])),
+       x = expression(paste("Median ", phi[~beta[X[n]~sigma]], " - Median ", phi[~beta[X[m]~sigma]])),
        y = "Lambda") +
   ylab(NULL) +
   theme(legend.position = "none") +
